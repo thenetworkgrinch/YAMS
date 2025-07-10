@@ -50,6 +50,16 @@ public class NovaWrapper extends SmartMotorController
   private       Optional<DCMotorSim> m_sim = Optional.empty();
 
   /**
+   * Construct the {@link SmartMotorController} for the generic {@link ThriftyNova} controller.
+   * This constructor is only used to create a ThriftyNova for reflection.
+   * @param id
+   */
+  public NovaWrapper(int id) {
+    m_nova = new ThriftyNova(id);
+    m_motor = DCMotor.getNEO(1); // Default to NEO motor
+  }
+
+  /**
    * Construct the Nova Wrapper for the generic {@link SmartMotorController}.
    *
    * @param controller {@link ThriftyNova} to use.

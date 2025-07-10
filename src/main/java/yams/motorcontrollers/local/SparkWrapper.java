@@ -18,6 +18,7 @@ import com.revrobotics.spark.SparkAbsoluteEncoder;
 import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkFlex;
 import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkSim;
@@ -90,6 +91,28 @@ public class SparkWrapper extends SmartMotorController
    */
   private       Optional<SparkAbsoluteEncoderSim> sparkAbsoluteEncoderSim = Optional.empty();
 
+  public enum SparkBaseType
+  {
+    SPARK_MAX, SPARK_FLEX
+  }
+
+  public SparkWrapper(int id, SparkBaseType type)
+  {
+    if (type == SparkBaseType.SPARK_MAX)
+    {
+      spark = new SparkMax(id, MotorType.kBrushless);
+      sparkBaseConfig = new SparkMaxConfig();
+    } else if (type == SparkBaseType.SPARK_FLEX)
+    {
+      spark = new SparkFlex(id, MotorType.kBrushless);
+      sparkBaseConfig = new SparkFlexConfig();
+    } else
+    {
+      throw new IllegalArgumentException("[ERROR] Unsupported controller type: " + type.name());
+    }
+    motor = DCMotor.getNEO(1); // Default to NEO motor type
+    sparkRelativeEncoder = spark.getEncoder();
+  }
 
   /**
    * Create a {@link SmartMotorController} from {@link SparkMax} or {@link SparkFlex}

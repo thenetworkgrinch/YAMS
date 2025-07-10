@@ -29,7 +29,6 @@ import yams.motorcontrollers.SmartMotorControllerConfig.ControlMode;
 import yams.motorcontrollers.SmartMotorControllerConfig.MotorMode;
 import yams.motorcontrollers.SmartMotorControllerConfig.TelemetryVerbosity;
 import yams.motorcontrollers.remote.TalonFXSWrapper;
-import yams.telemetry.SmartMotorControllerTelemetryConfig;
 
 public class TurretSubsystem extends SubsystemBase
 {

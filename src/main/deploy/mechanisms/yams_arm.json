@@ -1,0 +1,61 @@
+{
+    "motorSetup": {
+        "name": "Arm",
+        "controllerType": "talonfx",
+        "motorType": "KrakenX60",
+        "canId": 11
+    },
+    "motorSystemId": {
+        "feedBack": {
+            "p": 4,
+            "i": 0.0,
+            "d": 0.0
+        },
+        "feedForward": {
+            "s": 0.0,
+            "v": 0.0,
+            "a": 0.0
+        },
+        "maxVelocity": {
+            "val": 180,
+            "uom": "deg/s"
+        },
+        "maxAcceleration": {
+            "val": 90,
+            "uom": "deg/s^2"
+        }
+    },
+    "length": {
+        "val": 0.135,
+        "uom": "in"
+    },
+    "lowerHardLimit": {
+        "val": -80,
+        "uom": "deg"
+    },
+    "upperHardLimit": {
+        "val": 200,
+        "uom": "deg"
+    },
+    "startingAngle": {
+        "val": 0,
+        "uom": "deg"
+    },
+    "lowerSoftLimit": {
+        "val": -30,
+        "uom": "deg"
+    },
+    "upperSoftLimit": {
+        "val": 100,
+        "uom": "deg"
+    },
+    "gearing": [3, 4],
+    "mass": {
+        "val": 1,
+        "uom": "lbs"
+    },
+    "horizontalZero": {
+        "val": 0,
+        "uom": "deg"
+    }
+}

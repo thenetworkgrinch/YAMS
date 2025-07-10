@@ -1,0 +1,57 @@
+{
+    "motorSetup": {
+        "name": "Turret",
+        "controllerType": "talonfx",
+        "motorType": "KrakenX60",
+        "canId": 12
+    },
+    "motorSystemId": {
+        "feedBack": {
+            "p": 4,
+            "i": 0.0,
+            "d": 0.0
+        },
+        "feedForward": {
+            "s": 0.0,
+            "v": 0.0,
+            "a": 0.0
+        },
+        "maxVelocity": {
+            "val": 180,
+            "uom": "deg/s"
+        },
+        "maxAcceleration": {
+            "val": 90,
+            "uom": "deg/s^2"
+        }
+    },
+    "lowerHardLimit": {
+        "val": -100,
+        "uom": "deg"
+    },
+    "upperHardLimit": {
+        "val": 200,
+        "uom": "deg"
+    },
+    "startingAngle": {
+        "val": 0,
+        "uom": "deg"
+    },
+    "lowerSoftLimit": {
+        "val": -30,
+        "uom": "deg"
+    },
+    "upperSoftLimit": {
+        "val": 100,
+        "uom": "deg"
+    },
+    "gearing": [
+        3,
+        4
+    ],
+    "startingPosition": {
+        "val": 0,
+        "uom": "deg"
+    },
+    "moi": 0.001
+}

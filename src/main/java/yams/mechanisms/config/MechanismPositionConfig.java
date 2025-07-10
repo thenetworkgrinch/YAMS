@@ -14,15 +14,15 @@ public class MechanismPositionConfig {
   /**
    * The translation from the robot to the mechanism (Optional)
    */
-  protected Optional<Translation3d> robotToMechanism;
+  protected Optional<Translation3d> robotToMechanism = Optional.empty();
   /**
    * The length of the robot in meters.
    */
-  protected Optional<Distance>      maxRobotLength;
+  protected Optional<Distance>      maxRobotLength = Optional.empty();
   /**
    * The height of the robot in meters.
    */
-  protected Optional<Distance>      maxRobotHeight;
+  protected Optional<Distance>      maxRobotHeight = Optional.empty();
 
   /**
    * The planes that the mechanism could be on, used for position calculations.
@@ -103,9 +103,9 @@ public class MechanismPositionConfig {
    * @param y the distance in the y-direction
    * @return the y-coordinate for visualizing on a Mechanism2d
    */
-  public Distance getMechanismY(Distance y) 
+  public Distance getMechanismY(Distance length) 
   {
-    return robotToMechanism.get().getMeasureZ();
+    return robotToMechanism.map(it -> it.getMeasureZ()).orElse(length);
   }
 
   /**

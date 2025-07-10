@@ -1,0 +1,59 @@
+{
+  "motorSetup": {
+    "name": "Elevator",
+    "controllerType": "spark",
+    "motorType": "Neo",
+    "canId": 10
+  },
+  "motorSystemId": {
+    "feedBack": {
+      "p": 2.7739E-10,
+      "i": 0.0,
+      "d": 0.0
+    },
+    "feedForward": {
+      "s": 0.013799,
+      "g": 0.24168,
+      "v": 10.219,
+      "a": 0.2153
+    },
+    "maxVelocity": {
+      "val": 4,
+      "uom": "m/s"
+    },
+    "maxAcceleration": {
+      "val": 20,
+      "uom": "m/s^2"
+    },
+    "controlMode": "OPEN_LOOP"
+  },
+  "sprocketTeeth": 22,
+  "lowerSoftLimit": {
+    "val": 0.1,
+    "uom": "m"
+  },
+  "upperSoftLimit": {
+    "val": 2,
+    "uom": "m"
+  },
+  "lowerHardLimit": {
+    "val": 0.1,
+    "uom": "m"
+  },
+  "upperHardLimit": {
+    "val": 3,
+    "uom": "m"
+  },
+  "gearing": [
+    3,
+    4
+  ],
+  "startingPosition": {
+    "val": 0.5,
+    "uom": "m"
+  },
+  "mass": {
+    "val": 16,
+    "uom": "lbs"
+  }
+}

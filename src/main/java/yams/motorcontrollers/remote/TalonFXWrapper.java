@@ -134,6 +134,28 @@ public class TalonFXWrapper extends SmartMotorController {
 
   /**
    * Create the {@link TalonFX} wrapper
+   * This constructor is only used for creating the motor with reflection
+   * @param id
+   */
+  public TalonFXWrapper(int id) {
+    this.m_talonfx = new TalonFX(id);
+    this.m_dcmotor = DCMotor.getKrakenX60(1);
+    this.config = null;
+    m_talonConfig = new TalonFXConfiguration();
+    m_configurator = m_talonfx.getConfigurator();
+    m_mechanismPosition = m_talonfx.getPosition();
+    m_mechanismVelocity = m_talonfx.getVelocity();
+    m_dutyCycle = m_talonfx.getDutyCycle();
+    m_statorCurrent = m_talonfx.getStatorCurrent();
+    m_supplyCurrent = m_talonfx.getSupplyCurrent();
+    m_outputVoltage = m_talonfx.getMotorVoltage();
+    m_rotorPosition = m_talonfx.getRotorPosition();
+    m_rotorVelocity = m_talonfx.getRotorVelocity();
+    m_deviceTemperature = null;
+  }
+
+  /**
+   * Create the {@link TalonFX} wrapper
    *
    * @param controller  {@link TalonFX}
    * @param motor       {@link DCMotor}

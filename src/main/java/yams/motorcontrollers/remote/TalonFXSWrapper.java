@@ -15,6 +15,7 @@ import static edu.wpi.first.units.Units.Volts;
 import com.ctre.phoenix6.StatusSignal;
 import com.ctre.phoenix6.configs.CANcoderConfiguration;
 import com.ctre.phoenix6.configs.CANdiConfiguration;
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.configs.TalonFXSConfiguration;
 import com.ctre.phoenix6.configs.TalonFXSConfigurator;
 import com.ctre.phoenix6.controls.Follower;
@@ -135,6 +136,29 @@ public class TalonFXSWrapper extends SmartMotorController
    * {@link CANdi} to use as external feedback sensor.
    */
   private final Optional<CANdi>               m_candi           = Optional.empty();
+
+  /**
+   * Create the {@link TalonFX} wrapper
+   * This constructor is only used for creating the motor with reflection
+   * @param id
+   */
+  public TalonFXSWrapper(int id) {
+    this.m_talonfxs = new TalonFXS(id);
+    this.m_dcmotor = DCMotor.getKrakenX60(1);
+    this.config = null;
+    m_configurator = m_talonfxs.getConfigurator();
+    m_talonConfig = new TalonFXSConfiguration();
+    m_configurator.refresh(m_talonConfig);
+    m_mechanismPosition = m_talonfxs.getPosition();
+    m_mechanismVelocity = m_talonfxs.getVelocity();
+    m_dutyCycle = m_talonfxs.getDutyCycle();
+    m_statorCurrent = m_talonfxs.getStatorCurrent();
+    m_supplyCurrent = m_talonfxs.getSupplyCurrent();
+    m_outputVoltage = m_talonfxs.getMotorVoltage();
+    m_rotorPosition = m_talonfxs.getRotorPosition();
+    m_rotorVelocity = m_talonfxs.getRotorVelocity();
+    m_deviceTemperature = m_talonfxs.getDeviceTemp();
+  }
 
   /**
    * Create the {@link TalonFXS} wrapper
